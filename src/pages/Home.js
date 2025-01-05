@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import DashboardCard from "../components/DashboardCard";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import DashboardChart from '../components/DashboardChart'; // Importa o novo gráfico
 
 const Home = () => {
   const [data, setData] = useState({
@@ -10,12 +10,12 @@ const Home = () => {
   });
 
   useEffect(() => {
-    // Chama o backend para obter as informações do dashboard
+    // Chama o backend para obter os dados do dashboard
     axios
       .get("/api/dashboard")
       .then((response) => {
         console.log("Dados recebidos:", response.data);
-        setData(response.data);
+        setData(response.data); // Atualiza o estado com os dados do dashboard
       })
       .catch((error) => {
         console.error("Erro ao buscar dados:", error);
@@ -25,11 +25,8 @@ const Home = () => {
   return (
     <div className="home">
       <h1>Dashboard</h1>
-      <div className="dashboard-cards">
-        <DashboardCard title="Estoque" value={data.estoque} />
-        <DashboardCard title="Vendas Realizadas" value={data.vendasRealizadas} />
-        <DashboardCard title="Pagamentos Pendentes" value={data.pagamentosPendentes} />
-      </div>
+      {/* Exibe o gráfico de barras */}
+      <DashboardChart data={data} />
     </div>
   );
 };

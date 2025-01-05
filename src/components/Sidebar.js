@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaTshirt, FaBox, FaCashRegister, FaFileInvoiceDollar } from "react-icons/fa";
+import { FaTshirt, FaBox, FaCashRegister, FaFileInvoiceDollar, } from "react-icons/fa";
+import SearchIcon from '@mui/icons-material/Search';
 import "../styles/global.css"
 
 const Sidebar = () => {
@@ -20,7 +21,7 @@ const Sidebar = () => {
         </li>
         <li>
           <Link to="/vendas">
-            <FaCashRegister className="icon" /> Controles de Vendas
+            <FaCashRegister className="icon" /> Vendas
           </Link>
         </li>
         <li>
@@ -30,14 +31,14 @@ const Sidebar = () => {
         </li>
         <li>
           <Link to="/estoque">
-            <FaBox className="icon" /> Estoque
+            <FaBox className="icon" /> Listar vendas a Prazo
           </Link>
           
         </li>
 
         <li>
           <Link to="/pesquisar">
-            <FaBox className="icon" /> Pesquisar
+            <SearchIcon className="icon" /> Pesquisar
           </Link>
           
         </li>

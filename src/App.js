@@ -7,7 +7,7 @@ import CadastroTenis from "./pages/CadastroTenis";
 import Vendas from "./pages/Vendas";
 import Dashboard from './components/DashboardCard';
 import PagamentosPrazo from "./pages/PagamentosPrazo";
-import Estoque from "./pages/Estoque";
+import VendaPrazo from "./pages/ListarPagamentosPrazo";
 import ListagemTenis from './pages/ListagemTenis';
 import VendasRealizadas from './pages/vendasrealizadas'; // Adicionei a importação do componente VendasRealizadas
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,15 +25,15 @@ const App = () => {
             <Route path="/cadastro-tenis" element={<CadastroTenis />} />
             <Route path="/vendas" element={<Vendas />} />
             <Route path="/pagamentos-prazo" element={<PagamentosPrazo />} />
-            <Route path="/estoque" element={<Estoque />} />
+            <Route path="/estoque" element={<VendaPrazo/>} />
             <Route path="/pesquisar" element={<ListagemTenis />} />
-            <Route path="/vendas-realizadas" element={<VendasRealizadas />} /> {/* Corrigido aqui */}
+            <Route path="/vendas-realizadas" element={<VendasRealizadas />} /> 
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </div>
     </Router>
-  );
+  )
 };
 
 export default App;

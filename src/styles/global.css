@@ -10,10 +10,6 @@
 html, body {
   width: 100%;
   height: 100%;
-}
-
-/* Corpo da página */
-body {
   font-family: 'Roboto', sans-serif;
   background-color: #f4f4f4; /* Cor de fundo clara */
   color: #333; /* Cor do texto mais escura para contraste */
@@ -22,13 +18,16 @@ body {
 /* Layout da aplicação */
 .app {
   display: flex;
-  min-height: 100vh; /* Garante que a altura da aplicação ocupe toda a tela */
+  min-height: 100vh;
+  flex-direction: row;
 }
 
+/* Corpo da página */
 .main-content {
   flex: 1;
   padding: 20px;
   background-color: #fff; /* Fundo branco para a área principal */
+  overflow-y: auto;
 }
 
 /* Sidebar */
@@ -43,11 +42,12 @@ body {
 }
 
 .sidebar .logo {
-  font-size: 1.5em;
+  font-size: 1.4em; /* Tamanho da logo maior */
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
-  color: #ecf0f1; /* Branco suave */
+  color: #f8fafa; /* Branco suave */
+  text-transform: uppercase;
 }
 
 .sidebar ul {
@@ -57,23 +57,24 @@ body {
 }
 
 .sidebar ul li {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .sidebar ul li a {
-  color: white; /* Branco */
-  text-decoration: none; /* Remove o sublinhado */
-  font-size: 1em;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
   display: flex;
   align-items: center;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 12px 20px;
+  border-radius: 8px;
   transition: background-color 0.3s ease;
+  font-weight: 500;
 }
 
 .sidebar ul li a .icon {
-  margin-right: 10px; /* Espaço entre o ícone e o texto */
-  font-size: 1.2em; /* Ajusta o tamanho do ícone */
+  margin-right: 15px; /* Mais espaço entre ícone e texto */
+  font-size: 1.5em;
 }
 
 .sidebar ul li a:hover {
@@ -82,37 +83,41 @@ body {
 
 .sidebar h2 {
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Mais espaçamento */
 }
 
 /* Estilização das cartas do dashboard */
 .dashboard-cards {
   display: flex;
-  gap: 20px;
-  margin-top: 20px; /* Adiciona espaçamento entre o título e as cartas */
+  gap: 30px;
+  margin-top: 30px;
+  flex-wrap: wrap; /* Para se adaptar ao tamanho da tela */
 }
 
 .dashboard-card {
   background-color: #fff;
   border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex: 1; /* Cartas se ajustam para ocupar o espaço disponível */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33.333% - 30px); /* Flexível, ocupa 1/3 da tela */
+  min-width: 250px; /* Garante que as cartas não fiquem muito pequenas */
 }
 
 .dashboard-card h2 {
-  margin: 0;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .dashboard-card p {
-  font-size: 1.5em;
-  margin-top: 10px; /* Espaço entre título e valor */
+  font-size: 2em;
+  margin-top: 10px;
+  color: #3498db; /* Cor para destacar o valor */
+  font-weight: 600;
 }
 
-/* Estilo para o Header (caso tenha) */
+/* Estilo para o Header */
 .header {
   padding: 20px;
   background-color: #333;
@@ -121,6 +126,69 @@ body {
 }
 
 .header h1 {
-  font-size: 2em;
+  font-size: 2.4em;
   margin: 0;
+  text-transform: uppercase;
+}
+
+
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .app {
+    flex-direction: column; /* Sidebar fica embaixo no tablet e telas pequenas */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .dashboard-cards {
+    gap: 20px;
+    flex-direction: column; /* Cards empilhados em telas pequenas */
+  }
+
+  .dashboard-card {
+    flex: 1 1 100%; /* Cards ocupando a largura total */
+  }
+
+  .sidebar .logo {
+    font-size: 1.5em;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column; /* Sidebar fica embaixo no celular */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .dashboard-cards {
+    gap: 20px;
+    flex-direction: column; /* Cards empilhados em telas pequenas */
+  }
+
+  .dashboard-card {
+    flex: 1 1 100%; /* Cards ocupando a largura total */
+  }
+
+  .sidebar .logo {
+    font-size: 1.5em;
+  }
+
+  .header h1 {
+    font-size: 1.8em;
+  }
 }

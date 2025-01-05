@@ -45,7 +45,7 @@ const ListagemTenis = () => {
 
   return (
     <div className="container mt-4">
-      <h1>Lista de Tênis Cadastrados</h1>
+      <h1 className="mb-4">Lista de Tênis Cadastrados</h1>
       <table className="table table-bordered table-striped table-hover mt-3">
         <thead className="thead-dark">
           <tr>
@@ -62,7 +62,7 @@ const ListagemTenis = () => {
         <tbody>
           {tenisList.map((tenis) => (
             <tr key={tenis.id}>
-              <td>{tenis.id}</td> {/* Adiciona a coluna ID */}
+              <td>{tenis.id}</td>
               <td>{tenis.numeracao}</td>
               <td>{tenis.marca}</td>
               <td>{tenis.modelo}</td>
